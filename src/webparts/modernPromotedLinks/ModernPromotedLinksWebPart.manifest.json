@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "ed8540c3-54f4-4f05-b5b5-5d5dd6e89fe8",
+  "alias": "ModernPromotedLinksWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
+    "group": { "default": "Other" },
+    "title": { "default": "Modern Promoted Links" },
+    "description": { "default": "A Promoted Links web part for use in the SharePoint Modern Experience." },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Modern Promoted Links"
+    }
+  }]
+}

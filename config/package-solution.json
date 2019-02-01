@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "modern-promoted-links-client-side-solution",
+    "id": "1dfef8f8-463c-4847-b824-de8aba90e803",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/modern-promoted-links.sppkg"
+  }
+}
