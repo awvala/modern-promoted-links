@@ -60,11 +60,11 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
             {
               groupFields: [
                 PropertyPaneDropdown('listId', {
-                   label: strings.selectedListNameFieldLabel,
+                   label: "Dropdown",//strings.selectedListNameFieldLabel,
                    options: this._listsInThisSite
                  }),
                  PropertyPaneSlider('numberOfItems', {
-                   label: strings.NumberOfDocumentsFieldLabel,
+                   label: "slider", // strings.NumberOfDocumentsFieldLabel,
                    min: 1,
                    max: 10,
                    step: 1
@@ -102,3 +102,4 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
         return options;
     });
   }
+}

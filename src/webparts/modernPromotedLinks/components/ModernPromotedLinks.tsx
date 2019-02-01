@@ -3,6 +3,7 @@ import styles from './ModernPromotedLinks.module.scss';
 import { IModernPromotedLinksProps, IModernPromotedLinkDataItem } from './IModernPromotedLinksProps';
 import ModernPromotedLinkItem, { IModernPromotedLinkItemProps } from './ModernPromotedLinkItem';
 import { escape } from '@microsoft/sp-lodash-subset';
+import { SPHttpClient } from '@microsoft/sp-http';
 
 export interface IModernPromotedLinksState {
   listData: IModernPromotedLinkDataItem[];
