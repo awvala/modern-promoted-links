@@ -15,6 +15,7 @@ export interface IModernPromotedLinkItemState {
 }
 
 export default class ModernPromotedLinks extends React.Component<IModernPromotedLinkItemProps, IModernPromotedLinkItemState> {
+
   constructor(props: IModernPromotedLinkItemProps, state: IModernPromotedLinkItemState) {
     super(props);
 
@@ -39,7 +40,9 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
           <Image className={styles.pLinkItemImage} src={this.props.imageUrl} shouldFadeIn={true} imageFit={ImageFit.cover} />
           <div className={this.state.hovering ? styles.pLinkItemHoverPanelExpanded : styles.pLinkItemHoverPanel}>
             <div className={styles.pLinkItemTitle}>{this.props.title}</div>
-            <div className={styles.pLinkItemDesc}>{this.props.description}</div>
+            <div className={styles.pLinkItemDesc}>
+              {this.props.description}
+            </div>
           </div>
         </div>
       </a>

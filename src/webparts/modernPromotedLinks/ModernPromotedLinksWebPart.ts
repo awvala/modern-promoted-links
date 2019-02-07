@@ -4,30 +4,22 @@ import { Version } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneSlider,
-  PropertyPaneDropdown,
-  IPropertyPaneDropdownOption
+  PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
+import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
 
 import * as strings from 'ModernPromotedLinksWebPartStrings';
 import ModernPromotedLinks from './components/ModernPromotedLinks';
 import { IModernPromotedLinksProps } from './components/IModernPromotedLinksProps';
-import { IModernPromotedLinksWebPartProps, ISPLists, ISPList } from './IModernPromotedLinksWebPartProps';
+import { IModernPromotedLinksWebPartProps } from './IModernPromotedLinksWebPartProps';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
 import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 
+export interface IModernPromotedLinksWebPartProps {
+  description: string;
+}
+
 export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IModernPromotedLinksWebPartProps> {
-
-  public onInit<T>(): Promise<T> {
-    this.fetchOptions()
-    .then((data) => {
-      this._listsInThisSite = data;
-    });
-
-    return Promise.resolve();
-  }
-
-  private _listsInThisSite: IPropertyPaneDropdownOption[] = [];
 
   public render(): void {
     const element: React.ReactElement<IModernPromotedLinksProps > = React.createElement(
@@ -35,9 +27,10 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
       {
         isWorkbench: Environment.type == EnvironmentType.Local,
         siteUrl: this.context.pageContext.web.absoluteUrl,
-        numberOfItems: this.properties.numberOfItems,
-        listId: this.properties.listId,
-        spHttpClient: this.context.spHttpClient
+        lists: this.properties.lists,
+        spHttpClient: this.context.spHttpClient,
+        description: this.properties.description,
+        context: this.context,
       }
     );
 
@@ -56,19 +49,31 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
     return {
       pages: [
         {
+          header: {
+            description: strings.PropertyPaneDescription
+          },
           groups: [
             {
+              groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneDropdown('listId', {
-                   label: "Dropdown",//strings.selectedListNameFieldLabel,
-                   options: this._listsInThisSite
-                 }),
-                 PropertyPaneSlider('numberOfItems', {
-                   label: "slider", // strings.NumberOfDocumentsFieldLabel,
-                   min: 1,
-                   max: 10,
-                   step: 1
-                 })
+                PropertyPaneTextField('description', {
+                  label: strings.DescriptionFieldLabel,
+                  value: "Promoted Links"
+                }),
+                 PropertyFieldListPicker('lists', {
+                  label: strings.ListNameFieldLabel,
+                  selectedList: this.properties.lists,
+                  includeHidden: false,
+                  orderBy: PropertyFieldListPickerOrderBy.Title,
+                  disabled: false,
+                  onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
+                  properties: this.properties,
+                  context: this.context,
+                  onGetErrorMessage: null,
+                  deferredValidationTime: 0,
+                  baseTemplate: 170,
+                  key: 'listPickerFieldId'
+                })
                ]
              }
            ]
@@ -76,30 +81,4 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
        ]
      };
    }
-
-   private fetchLists(url: string) : Promise<ISPLists> {
-    return this.context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          console.log("WARNING - failed to hit URL " + url + ". Error = " + response.statusText);
-          return null;
-        }
-      });
-  }
-
-  private fetchOptions(): Promise<IPropertyPaneDropdownOption[]> {
-    var url = this.context.pageContext.web.absoluteUrl + `/_api/web/lists?$filter=BaseTemplate eq 170 and Hidden eq false`;
-
-    return this.fetchLists(url).then((response) => {
-        var options: Array<IPropertyPaneDropdownOption> = new Array<IPropertyPaneDropdownOption>();
-        var lists: ISPList[] = response.value;
-        lists.forEach((list: ISPList) => {
-            console.log("Found list with title = " + list.Title);
-            options.push( { key: list.Id, text: list.Title });
-        });
-
-        return options;
-    });
-  }
 }

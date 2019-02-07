@@ -1,12 +1,17 @@
 import * as React from 'react';
 import styles from './ModernPromotedLinks.module.scss';
 import { IModernPromotedLinksProps, IModernPromotedLinkDataItem } from './IModernPromotedLinksProps';
+import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/components/Spinner';
+import { Placeholder } from '@pnp/spfx-controls-react/lib/Placeholder';
 import ModernPromotedLinkItem, { IModernPromotedLinkItemProps } from './ModernPromotedLinkItem';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { SPHttpClient } from '@microsoft/sp-http';
 
+
 export interface IModernPromotedLinksState {
   listData: IModernPromotedLinkDataItem[];
+  loading?: boolean;
+  showPlaceholder?: boolean;
 }
 
 export default class ModernPromotedLinks extends React.Component<IModernPromotedLinksProps, IModernPromotedLinksState> {
@@ -14,36 +19,100 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
   constructor(props: IModernPromotedLinksProps, state: IModernPromotedLinksState) {
     super(props);
 
-    this.state = { listData: [] };
+    this._onConfigure = this._onConfigure.bind(this);
+
+    this.state = { 
+      listData: [],
+      loading: false,
+      showPlaceholder: (this.props.lists === null || this.props.lists === ""),
+    };
   }
+
+  /*
+   * Opens the web part property pane
+  */
+ private _onConfigure() {
+  this.props.context.propertyPane.open();
+}
 
 
   public render(): React.ReactElement<IModernPromotedLinksProps> {
+
+    if (this.state.showPlaceholder) {
+      // Check if placeholder needs to be shown
+      return (
+        <Placeholder
+          iconName="Edit"
+          iconText="Promoted links web part configuration"
+          description="Please configure the web part before you can show the promoted links."
+          buttonLabel="Configure"
+          onConfigure={this._onConfigure}/>
+      );
+    }
+
     return (
       <div className={styles.modernPromotedLinks}>
-        <div className={styles.container}>
+      <div >
+        <h2>{this.props.description}</h2>
+      </div>
+      {
+          this.state.loading ?
+            (
+              <Spinner size={SpinnerSize.large} label="Retrieving results ..." />
+            ) : (
+              this.state.listData.length === 0 ?
+                (
+                  <Placeholder
+                    iconName="InfoSolid"
+                    iconText="No items found"
+                    description="The Promoted links list you selected does not contain items."
+                  />
+                ) : (
 
+        <div className={styles.container}>
           {
             this.state.listData.map((item: IModernPromotedLinkDataItem) => {
               return <ModernPromotedLinkItem
                 title={item.Title}
                 description={item.Description}
                 imageUrl={item.ImageUrl}
-                href={item.LinkUrl} />;
+                href={item.LinkUrl}
+                 />;   
             })
           }
-
           <div style={{ clear: 'both' }}></div>
         </div>
+                )
+                )
+        }
       </div>
     );
   }
 
   public componentDidMount(): void {
+    if (this.props.lists !== null && this.props.lists !== "") {
     this.loadData();
+    }
+  }
+
+  public componentDidUpdate(prevProps: IModernPromotedLinksProps, prevState: IModernPromotedLinksState, prevContext: any) {
+    if (prevProps.lists != this.props.lists) {
+      if (this.props.lists !== null && this.props.lists !== "") {
+        this.loadData();
+      } else {
+        this.setState({
+          showPlaceholder: true
+        });
+      }
+    }
   }
 
   private loadData(): void {
+
+    this.setState({
+      loading: true
+    });
+
     if (this.props.isWorkbench) {
       // get mock data in Workbench
       this.setState({
@@ -70,31 +139,29 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
       });
     } else {
       // get data from SharePoint
-      this.props.spHttpClient.get(`${this.props.siteUrl}/_api/Web/Lists(guid'${this.props.listId}')/Items?$top=${this.props.numberOfItems}`, SPHttpClient.configurations.v1)
+      this.props.spHttpClient.get(`${this.props.siteUrl}/_api/Web/Lists(guid'${this.props.lists}')/Items`, SPHttpClient.configurations.v1)
       .then(response => {
         return response.json();
       })
       .then((items: any) => {
+        console.log(items);
         const listItems: IModernPromotedLinkDataItem[] = [];
         for (let i: number = 0; i < items.value.length; i++) {
           listItems.push({
             Title: items.value[i].Title,
             Description: items.value[i].Description,
             ImageUrl: items.value[i].BackgroundImageLocation.Url,
-            LinkUrl: items.value[i].LinkLocation.Url
+            LinkUrl: items.value[i].LinkLocation.Url,
           });
         }
-        this.setState({ listData: listItems });
+        this.setState({ 
+          listData: listItems,
+          loading: false,
+          showPlaceholder: false
+        });
       }, (err: any) => {
         console.log(err);
       });
-    }
-  }
-
-  public componentDidUpdate(prevProps: IModernPromotedLinksProps, prevState: IModernPromotedLinksState, prevContext: any) {
-    if (prevProps.numberOfItems != this.props.numberOfItems
-      || prevProps.listId != this.props.listId && (this.props.numberOfItems && this.props.listId)) {
-        this.loadData();
     }
   }
 }
