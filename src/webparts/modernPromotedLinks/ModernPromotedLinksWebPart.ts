@@ -27,7 +27,7 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
       {
         isWorkbench: Environment.type == EnvironmentType.Local,
         siteUrl: this.context.pageContext.web.absoluteUrl,
-        lists: this.properties.lists,
+        lists: this.properties.lists || "",
         spHttpClient: this.context.spHttpClient,
         description: this.properties.description,
         context: this.context,

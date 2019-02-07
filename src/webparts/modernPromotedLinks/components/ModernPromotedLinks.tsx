@@ -35,7 +35,6 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
   this.props.context.propertyPane.open();
 }
 
-
   public render(): React.ReactElement<IModernPromotedLinksProps> {
 
     if (this.state.showPlaceholder) {
@@ -131,9 +130,9 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
           },
           {
             Title: "Test Item",
-            Description: "Test description",
+            Description: "Test item with a long description for display",
             ImageUrl: "https://s-media-cache-ak0.pinimg.com/736x/d6/d4/d7/d6d4d7224687ca3de4a160f5264b5b99.jpg",
-            LinkUrl: "Test item with a long description for display."
+            LinkUrl: "http://www.google.com_open."
           }
         ]
       });
@@ -144,7 +143,7 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
         return response.json();
       })
       .then((items: any) => {
-        console.log(items);
+        // console.log(items);
         const listItems: IModernPromotedLinkDataItem[] = [];
         for (let i: number = 0; i < items.value.length; i++) {
           listItems.push({
