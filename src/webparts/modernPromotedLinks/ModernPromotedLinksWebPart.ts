@@ -57,8 +57,7 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
               groupName: strings.BasicGroupName,
               groupFields: [
                 PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel,
-                  value: "Promoted Links"
+                  label: strings.DescriptionFieldLabel
                 }),
                  PropertyFieldListPicker('lists', {
                   label: strings.ListNameFieldLabel,
