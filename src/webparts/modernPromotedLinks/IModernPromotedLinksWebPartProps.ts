@@ -1,13 +1,4 @@
 export interface IModernPromotedLinksWebPartProps {
-    listId: string;
-    numberOfItems: number;
-  }
-  
-  export interface ISPList {
-    Title: string;
-    Id: string;
-  }
-  
-  export interface ISPLists {
-    value: ISPList[];
+    lists: string | string[]; // Stores the list ID(s)
+    description: string; // Stores the Web Part Title
   }
