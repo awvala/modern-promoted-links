@@ -35,7 +35,7 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
 
   public render(): React.ReactElement<IModernPromotedLinkItemProps> {
     return (
-      <a href={this.props.href} target="_blank" role="listitem"
+      <a href={this.props.href} target= {this.props.launchbehavior === 'In page navigation' ? '_top' : '_blank'} role="listitem"
             onMouseOver={this.mouseOver.bind(this)} onMouseOut={this.mouseOut.bind(this)}>
         <div className={styles.pLinkItemWrapper}>
           <Image className={styles.pLinkItemImage} src={this.props.imageUrl} shouldFadeIn={true} imageFit={ImageFit.cover} />
