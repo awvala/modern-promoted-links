@@ -35,6 +35,7 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
 
   public render(): React.ReactElement<IModernPromotedLinkItemProps> {
     return (
+      //  Ternary operator to evaluate target property of link.  Dialog has been excluded as this feature does not work in the page"
       <a href={this.props.href} target= {this.props.launchbehavior === 'In page navigation' ? '_top' : '_blank'} role="listitem"
             onMouseOver={this.mouseOver.bind(this)} onMouseOut={this.mouseOut.bind(this)}>
         <div className={styles.pLinkItemWrapper}>
