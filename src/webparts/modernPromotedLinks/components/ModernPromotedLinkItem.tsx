@@ -8,6 +8,7 @@ export interface IModernPromotedLinkItemProps {
   title: string;
   description: string;
   href: string;
+  launchbehavior: string;
 }
 
 export interface IModernPromotedLinkItemState {
@@ -34,15 +35,16 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
 
   public render(): React.ReactElement<IModernPromotedLinkItemProps> {
     return (
-      <a href={this.props.href} target="_top" role="listitem"
+      //  Ternary operator to evaluate target property of link.  Dialog has been excluded as this feature does not work in the page"
+      <a href={this.props.href} target= {this.props.launchbehavior === 'In page navigation' ? '_top' : '_blank'} role="listitem"
             onMouseOver={this.mouseOver.bind(this)} onMouseOut={this.mouseOut.bind(this)}>
         <div className={styles.pLinkItemWrapper}>
           <Image className={styles.pLinkItemImage} src={this.props.imageUrl} shouldFadeIn={true} imageFit={ImageFit.cover} />
           <div className={this.state.hovering ? styles.pLinkItemHoverPanelExpanded : styles.pLinkItemHoverPanel}>
             <div className={styles.pLinkItemTitle}>{this.props.title}</div>
-            <div className={styles.pLinkItemDesc}>
+            <p className={styles.pLinkItemDesc}>
               {this.props.description}
-            </div>
+            </p>
           </div>
         </div>
       </a>

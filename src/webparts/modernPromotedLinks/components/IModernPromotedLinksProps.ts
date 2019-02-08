@@ -14,4 +14,5 @@ export interface IModernPromotedLinkDataItem {
   ImageUrl: string;
   Description: string;
   LinkUrl: string;
+  LaunchBehavior: string;
 }
