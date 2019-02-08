@@ -40,9 +40,9 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
           <Image className={styles.pLinkItemImage} src={this.props.imageUrl} shouldFadeIn={true} imageFit={ImageFit.cover} />
           <div className={this.state.hovering ? styles.pLinkItemHoverPanelExpanded : styles.pLinkItemHoverPanel}>
             <div className={styles.pLinkItemTitle}>{this.props.title}</div>
-            <div className={styles.pLinkItemDesc}>
+            <p className={styles.pLinkItemDesc}>
               {this.props.description}
-            </div>
+            </p>
           </div>
         </div>
       </a>
