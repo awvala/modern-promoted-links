@@ -76,6 +76,7 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
                 description={item.Description}
                 imageUrl={item.ImageUrl}
                 href={item.LinkUrl}
+                launchbehavior={item.LaunchBehavior}
                  />;   
             })
           }
@@ -120,19 +121,22 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
             Title: "Test Item",
             Description: "Test description",
             ImageUrl: "https://media-cdn.tripadvisor.com/media/photo-s/04/a8/17/f5/el-arco.jpg",
-            LinkUrl: "http://www.google.com"
+            LinkUrl: "http://www.google.com",
+            LaunchBehavior: "_blank"
           },
           {
             Title: "Test Item with a Long Title",
             Description: "Test description",
             ImageUrl: "https://pgcpsmess.files.wordpress.com/2014/04/330277-red-fox-kelly-lyon-760x506.jpg",
-            LinkUrl: "http://www.google.com"
+            LinkUrl: "http://www.google.com",
+            LaunchBehavior: "_blank"
           },
           {
             Title: "Test Item",
             Description: "Test item with a long description for display",
             ImageUrl: "https://s-media-cache-ak0.pinimg.com/736x/d6/d4/d7/d6d4d7224687ca3de4a160f5264b5b99.jpg",
-            LinkUrl: "http://www.google.com_open."
+            LinkUrl: "http://www.google.com_open.",
+            LaunchBehavior: "_blank"
           }
         ]
       });
@@ -143,7 +147,7 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
         return response.json();
       })
       .then((items: any) => {
-        // console.log(items);
+         console.log(items);
         const listItems: IModernPromotedLinkDataItem[] = [];
         for (let i: number = 0; i < items.value.length; i++) {
           listItems.push({
@@ -151,6 +155,7 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
             Description: items.value[i].Description,
             ImageUrl: items.value[i].BackgroundImageLocation.Url,
             LinkUrl: items.value[i].LinkLocation.Url,
+            LaunchBehavior: items.value[i].LaunchBehavior
           });
         }
         this.setState({ 
