@@ -13,9 +13,13 @@ This is a promoted links web part for the Modern SharePoint experience built wit
     * Image, IImageProps, ImageFit
 * SPHttpClient
 
-### Demo
+### Demos
 
+#### Adding Web Part to a Modern Page
 ![Full Demo of the Modern Promoted Links](/src/assets/ModernPromotedLinks.gif)
+
+#### Adding Web Part to a Classic Page
+![Full Demo of the Modern Promoted Links in a classic page](/src/assets/ModernPromotedLinksClassic.gif)
 
 ### Building the code
 
