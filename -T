@@ -1,0 +1,185 @@
+[33mcommit 53a22d385490d5f7e8a7c5b7300423ca527a9386[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 14:11:35 2019 -0600
+
+    Update README.md
+
+[33mcommit 72849cbdae757b5b8409361af5c85db0fa8c34c0[m
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 14:10:59 2019 -0600
+
+    Update README.md
+
+[33mcommit cbaa8b6d04940c242af855a878338a5d7c8ca8d5[m
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 14:09:46 2019 -0600
+
+    Update README.md
+
+[33mcommit 615c3385b721fa640c6493de824d22cf6b3f97f2[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 14:07:58 2019 -0600
+
+    updated ReadMe file with features list
+
+[33mcommit 5bc287fcfeb5753530b5719efd0b22821ebd0181[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 13:58:02 2019 -0600
+
+    updated readme web part deployment videos
+
+[33mcommit 029e13ed3dcfb2a494cef27c2f77bb76dac1bb9e[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 13:38:04 2019 -0600
+
+    updated readMe file
+
+[33mcommit 3c972a3018eeb1702fddd963896075b22ffd0c1f[m
+Merge: 3024105 243e474
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 13:36:48 2019 -0600
+
+    Merge pull request #6 from awvala/classicpagefix
+    
+    init commit
+
+[33mcommit 243e47411fb527675e1932ef1336c69dce2ac0bf[m[33m ([m[1;31morigin/classicpagefix[m[33m, [m[1;32mclassicpagefix[m[33m)[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 13:29:10 2019 -0600
+
+    init commit
+
+[33mcommit 30241051231409416204ae29c9b78860a4e9a5b7[m
+Merge: 23871ea 21e11cf
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 12:20:42 2019 -0600
+
+    Merge pull request #5 from awvala/applyButton
+    
+    added environment determination to add Apply button to property pane …
+
+[33mcommit 21e11cf230cae24694dd36170911f97f97758a15[m[33m ([m[1;31morigin/applyButton[m[33m, [m[1;32mapplyButton[m[33m)[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 12:19:52 2019 -0600
+
+    added environment determination to add Apply button to property pane when in classic page mode
+
+[33mcommit 23871ea839d745bd83c2e87f2607b934fab556cf[m
+Merge: cf8e3ec 5c9700e
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 11:35:18 2019 -0600
+
+    Merge pull request #4 from awvala/readMe
+    
+    Read me
+
+[33mcommit 5c9700e891ebf29936e6044dc9abd06d370fc0d0[m[33m ([m[1;31morigin/readMe[m[33m, [m[1;32mreadMe[m[33m)[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 11:30:37 2019 -0600
+
+    updated gif location
+
+[33mcommit c6d8b70592fc93b93095a64e5b497f58d6603e4c[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Mon Feb 11 11:27:47 2019 -0600
+
+    created initial readme with gif demo
+
+[33mcommit cf8e3ecda9196d1354202486299299b20c459920[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 8 11:34:01 2019 -0600
+
+    Added assets folder and demo gif
+
+[33mcommit 026a3bcad7145a3aae963d4dc0e6b0593adbe99d[m
+Merge: 4ab5c6d b229e86
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 8 10:36:12 2019 -0600
+
+    Merge pull request #3 from awvala/targetURL
+    
+    Target url
+
+[33mcommit b229e86c12026827581ee68185839d541addb9d6[m[33m ([m[1;31morigin/targetURL[m[33m, [m[1;32mtargetURL[m[33m)[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 8 10:31:05 2019 -0600
+
+    added comment addressing Dialog launch behavior selection
+
+[33mcommit fb7ff6c8e2499aedbd44e933e31f000ab14d87c4[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 8 10:29:27 2019 -0600
+
+    Added logic to listItem component to set target property of anchor elements
+
+[33mcommit 922c7bddf204c84478ba570e37c513bee6cc0022[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 8 10:17:59 2019 -0600
+
+    added LaunchBehavior to props and component- no logic yet
+
+[33mcommit 8e73c123510dce94f7ddb1b87b34392ab9248fe1[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 8 09:59:37 2019 -0600
+
+    changed item description from div to p element
+
+[33mcommit 4ab5c6db295a72dbe6fb68e7aaed5c5ab112c9ac[m
+Merge: 5b9bd43 d19c777
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Thu Feb 7 17:08:07 2019 -0600
+
+    Merge pull request #2 from awvala/vanilla-update
+    
+    Refactor list property panel and error handling
+
+[33mcommit d19c777142be98215db518484acedf98d9228b9f[m[33m ([m[1;31morigin/vanilla-update[m[33m, [m[1;32mvanilla-update[m[33m)[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Thu Feb 7 17:03:53 2019 -0600
+
+    Removed value property of PropertyPaneTextField
+
+[33mcommit 9cbadb0c787056ca6c089d97282e8e725ae289d6[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Thu Feb 7 16:15:35 2019 -0600
+
+    Fixed initial loading screen by adding possible empty value to lists property in the item component file
+
+[33mcommit bc03af77a5f65dcbae101f4521f8792a5ae62761[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Thu Feb 7 15:58:17 2019 -0600
+
+    converted to pnp Listpicker control and added error handling for an empty list or an unselected list using the Placeholder and Spinner spfx-controls-react packages
+
+[33mcommit 5b9bd4351709af4ab89756504f488a4382deb99e[m
+Merge: c49c4e9 c9e3b0d
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 1 16:21:37 2019 -0600
+
+    Merge pull request #1 from awvala/clone-spfx-promoted-links
+    
+    Clone spfx promoted links
+
+[33mcommit c9e3b0d440bfc8e93b1a2ffc3d9642a8e0c10fdc[m[33m ([m[1;31morigin/clone-spfx-promoted-links[m[33m, [m[1;32mclone-spfx-promoted-links[m[33m)[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 1 16:18:28 2019 -0600
+
+    working demo in SharePoint workbench
+
+[33mcommit a8e37264b01193716f79e03196b9297b7cf5ec05[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 1 16:08:51 2019 -0600
+
+    copied SPFX-promoted-links and converted naming convention of web part
+
+[33mcommit c49c4e9aad652f4972b51fddb8fbb5f22db5ed2c[m
+Author: Andrew Vala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 1 14:55:27 2019 -0600
+
+    init commit
+
+[33mcommit cedacdf0c51942d3b500055b1abfede13569410c[m
+Author: awvala <38055092+awvala@users.noreply.github.com>
+Date:   Fri Feb 1 14:43:22 2019 -0600
+
+    Initial commit
