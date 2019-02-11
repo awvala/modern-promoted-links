@@ -6,7 +6,8 @@ This is a promoted links web part for the Modern SharePoint experience built wit
 * Wrapped promoted link tiles.
 * Promoted Links list picker dropdown in the property pane panel (uses @pnp/spfx-property-controls).
 * Placeholder and Spinner elements to handle unconfigured web parts and empty lists.
-* Links configured to open in current window or in new tab pased on Launch Behavior selection in the Promoted Links list. 
+* Links configured to open in current window or in new tab based on Launch Behavior selection in the Promoted Links list. 
+  * "Dialog" selections will open in a new tab. 
 
 ### SPFx Add-ons and tools
 * spfx-property-controls
