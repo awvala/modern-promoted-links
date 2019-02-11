@@ -13,7 +13,7 @@ This is a promoted links web part for the Modern SharePoint experience built wit
 
 ### Demo
 
-![Full Demo of the Modern Promoted Links](../assets/ModernPromotedLinks.gif)
+![Full Demo of the Modern Promoted Links](/src/assets/ModernPromotedLinks.gif)
 
 ### Building the code
 
