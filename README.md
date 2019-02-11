@@ -1,11 +1,24 @@
 ## modern-promoted-links
 
-This is where you include your WebPart documentation.
+This is a promoted links web part for the Modern SharePoint experience built with React and the Office-UI-Fabric.  
+
+### SPFx Add-ons and tools
+* PropertyFieldListPicker control
+* spfx-controls-react
+    * Placeholder control
+* office-ui-fabric-react
+    * Spinner, SpinnerSize
+    * Image, IImageProps, ImageFit
+* SPHttpClient
+
+### Demo
+
+![Full Demo of the Modern Promoted Links](../assets/ModernPromotedLinks.gif)
 
 ### Building the code
 
 ```bash
-git clone the repo
+git clone https://github.com/awvala/modern-promoted-links.git
 npm i
 npm i -g gulp
 gulp
