@@ -147,7 +147,7 @@ export default class ModernPromotedLinks extends React.Component<IModernPromoted
         return response.json();
       })
       .then((items: any) => {
-         console.log(items);
+         // console.log(items);
         const listItems: IModernPromotedLinkDataItem[] = [];
         for (let i: number = 0; i < items.value.length; i++) {
           listItems.push({

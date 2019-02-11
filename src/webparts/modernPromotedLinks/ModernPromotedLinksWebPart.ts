@@ -22,7 +22,7 @@ export interface IModernPromotedLinksWebPartProps {
 export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IModernPromotedLinksWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IModernPromotedLinksProps > = React.createElement(
+    const element: React.ReactElement<IModernPromotedLinksProps> = React.createElement(
       ModernPromotedLinks,
       {
         isWorkbench: Environment.type == EnvironmentType.Local,
@@ -45,6 +45,24 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
     return Version.parse('1.0');
   }
 
+  // Determine environment and add apply button to the classic page to save property pane settings.
+  protected get disableReactivePropertyChanges(): boolean {
+
+    let buttonStatus: boolean = false;
+
+    if (Environment.type == EnvironmentType.ClassicSharePoint) {
+      // Classic web page, show Apply button
+      buttonStatus = true;
+    } else if (Environment.type === EnvironmentType.SharePoint) {
+      // Modern SharePoint page, hide Apply button
+      buttonStatus = false;
+    } else if (Environment.type === EnvironmentType.Local) {
+      // Workbench page, hide Apply button
+      buttonStatus = false;
+    }
+    return buttonStatus;
+  }
+
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -59,7 +77,7 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
                 }),
-                 PropertyFieldListPicker('lists', {
+                PropertyFieldListPicker('lists', {
                   label: strings.ListNameFieldLabel,
                   selectedList: this.properties.lists,
                   includeHidden: false,
@@ -73,11 +91,11 @@ export default class ModernPromotedLinksWebPart extends BaseClientSideWebPart<IM
                   baseTemplate: 170,
                   key: 'listPickerFieldId'
                 })
-               ]
-             }
-           ]
-         }
-       ]
-     };
-   }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
 }
