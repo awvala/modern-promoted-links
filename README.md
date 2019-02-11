@@ -37,7 +37,7 @@ This is a promoted links web part for the Modern SharePoint experience built wit
 git clone https://github.com/awvala/modern-promoted-links.git
 npm i
 npm i -g gulp
-gulp
+gulp serve
 ```
 
 This package produces the following:
