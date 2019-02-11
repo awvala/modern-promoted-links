@@ -3,7 +3,9 @@
 This is a promoted links web part for the Modern SharePoint experience built with React and the Office-UI-Fabric.  
 
 ### SPFx Add-ons and tools
-* PropertyFieldListPicker control
+* spfx-property-controls
+    * PropertyFieldListPicker
+    * PropertyFieldListPickerOrderBy
 * spfx-controls-react
     * Placeholder control
 * office-ui-fabric-react
